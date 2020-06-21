@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'webappexample.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'akshatk4_virtualhospital',
+        'USER': 'akshatk4_akshat',
+        'PASSWORD':'Akshat@2000',
+        'HOST':'akshatkhanna.co',
+        'PORT': '3306',
     }
 }
 
