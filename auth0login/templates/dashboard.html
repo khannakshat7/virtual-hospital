@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h2>Welcome {{ user.username }}!</h2>
+{% endif %}
+<div>
+<a href="/appointment">
+    <button type="button" class="btn btn-primary float-right">Make a appointment</button>
+</a>
+</div><br><br><br><br>
+<div>
+<h3>Previous Appointments:</h3>
+{% for i in data.appoint %}
+<div class="card">
+    <div class="card-body">
+        Doctor Name: <b>Dr. {{ i.doctorName }}</b><br>
+        Report Uploaded: <b><a href="media/{{ i.Report }}">{{ i.Report }}</a></b><br>
+        CT Scan Uploded: <b><a href="media/{{ i.scans }}">{{ i.scans }}</a></b><br>
+        Appointment at: <b>{{ i.date }}</b><br>
+    </div>
+    {% if i.status %}
+    <div class="row p-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Medicines</h3>
+                    {{ i.medicines }}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Lab Tests</h3>
+                    {{ i.tests }}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Summary</h3>
+                    {{ i.summary }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+    <div class="card-body text-right">
+        Status:{% if i.status %}
+        <span class="badge badge-success">Completed</span>
+        {% else %}
+        <span class="badge badge-warning">Pending</span>
+        {% endif %}<br>
+    </div>
+  </div>
+  <br>
+{% endfor %}
+</div>
+{% endblock content %}

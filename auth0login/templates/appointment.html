@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="jumbotron">
+<form action="../appointment" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Doctor</label>
+        <select class="form-control" name="doctorname" id="exampleFormControlSelect1">
+          {% for i in doctors %}
+          <option value="{{ i.username }}">Dr. {{ i.username }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Upload previous report</label>
+        <input type="file" class="form-control-file" name="prevReport" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Upload previous CT scans</label>
+        <input type="file" class="form-control-file" name="prevScans" required>
+      </div>
+    <button type="submit" class="btn btn-primary">Make Appointment</button>
+  </form>
+</div>
+{% endblock content %}

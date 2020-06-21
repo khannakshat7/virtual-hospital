@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h2>Welcome Doctor {{ user.username }}!</h2>
+{% endif %}
+<div><br>
+<h3>Appointments:</h3>
+{% for i in appoint %}
+<div class="card">
+    <div class="card-body">
+        Doctor Name: <b>Dr. {{ i.doctorName }}</b><br>
+        Report Uploaded: <b><a href="../media/{{ i.Report }}">{{ i.Report }}</a></b><br>
+        CT Scan Uploded: <b><a href="../media/{{ i.scans }}">{{ i.scans }}</a></b><br>
+        Appointment at: <b>{{ i.date }}</b><br>
+    </div>
+    <div class="card-body text-right">
+        Status:{% if i.status %}
+        <span class="badge badge-success">Completed</span>
+        {% else %}
+        <span class="badge badge-warning">Pending</span>
+        {% endif %}<br>
+    </div>
+    <div class="card-body text-right">
+        <a href="http://meet.jit.si/{{ i.username }}" target="_blank"><button type="button" class="btn btn-primary">Start Meeting</button></a>
+        <button type="button" class="btn btn-success" onclick="$('.form{{ i.id }}').removeClass('collapse');">Final Report</button>
+        <button type="button" class="btn btn-info">Re-appoint</button>
+    </div>
+    <div class="form{{ i.id }} collapse">
+        <form action="/done" method="POST">
+            <input type="text" name="id" value="{{i.id}}" hidden><br>
+            <div class="row p-3">
+                <div class="col">
+                    <div class="form-group d-inline">
+                        <label for="exampleFormControlTextarea1">Medicines</label>
+                        <textarea class="form-control" name="medicines" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group d-inline">
+                        <label for="exampleFormControlTextarea1">Tests</label>
+                        <textarea class="form-control" name="tests" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group d-inline">
+                        <label for="exampleFormControlTextarea1">Summary</label>
+                        <textarea class="form-control" name="summary" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="p-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            
+          </form>
+    </div>
+  </div>
+  <br>
+{% endfor %}
+</div>
+{% endblock content %}
