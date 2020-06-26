@@ -1,11 +1,11 @@
+# virtual-hospital
+A Web application which brings the treatment from the world's best Doctors to you by just one click!
+
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://virtual-hospital.azurewebsites.net/)&nbsp;
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/khannakshat7/virtual-hospital)&nbsp;
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://github.com/khannakshat7/virtual-hospital)&nbsp;
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://virtual-hospital.azurewebsites.net/)&nbsp;
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/khannakshat7/virtual-hospital/blob/master/README.md)&nbsp;
-
-# virtual-hospital
-A Web application which brings the treatment from the world's best Doctors to you by just one click!
 
 > **You can view the demo [here](https://virtual-hospital.azurewebsites.net/).**
 
