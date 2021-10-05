@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# Model to store appointments
 class appointment(models.Model):
     appointmentid = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100)
